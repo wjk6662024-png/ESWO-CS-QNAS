@@ -52,8 +52,7 @@
   ```python
 ~/path/to/EQNAS/src/dataset/mnist
 ~/path/to/EQNAS/src/dataset/warship
-~/path/to/EQNAS/src/dataset/thucnews
-  ```
+~/path/to/EQNAS/src/dataset/thucnews```
 
 # 环境要求
 
