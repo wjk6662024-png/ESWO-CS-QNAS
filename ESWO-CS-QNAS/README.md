@@ -97,7 +97,7 @@
   python eval.py --data-type mnist --data-path ./src/dataset/mnist/ --ckpt-path /abs_path/to/best_ckpt/ | tee mnist_eval.log
   # warship数据集评估
   python eval.py --data-type warship --data-path ./src/dataset/warship/ --ckpt-path /abs_path/to/best_ckpt/ | tee warship_eval.log
-  # warship数据集评估
+  # thucnews数据集评估
   python eval.py --data-type thucnews --data-path ./src/dataset/thucnews/ --ckpt-path /abs_path/to/best_ckpt/ | tee thucnews_eval.log
   ```
 
@@ -117,7 +117,7 @@
         ├── loss.py                     # 模型损失函数
         ├── metrics.py                  # 模型评价指标
         ├── model
-        │   └── common.py               # Qnn量子神经网络创建
+        │   └── common.py               # QNN量子神经网络创建
         ├── ESWO-CS-QNAS.py             # 量子神经架构搜索算法
         └── utils
             ├── config.py               # 模型参数配置文件
