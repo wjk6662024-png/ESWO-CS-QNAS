@@ -49,10 +49,11 @@
 - 数据集 [THUCNews](https://pan.baidu.com/s/1hugrfRu/) 描述：THUCNews是根据新浪新闻RSS订阅频道2005~2011年间的历史数据筛选过滤生成，包含74万篇新闻文档，均为UTF-8纯文本格式。为了降低量子神经网络的训练压力，我们从四个类别中各提取一千条数据，使用这四千条数据训练和评估搜索到的量子神经网络。
 下载后，将数据集解压到如下目录：
 
-  ```python
+```python
 ~/path/to/EQNAS/src/dataset/mnist
 ~/path/to/EQNAS/src/dataset/warship
-~/path/to/EQNAS/src/dataset/thucnews```
+~/path/to/EQNAS/src/dataset/thucnews
+```
 
 # 环境要求
 
