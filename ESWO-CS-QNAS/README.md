@@ -3,7 +3,7 @@
 <!-- TOC -->
 
 - [目录](#目录)
-- [EQNAS描述](#EQNAS描述)
+- [ESWO-CS-QNAS描述](#ESWO-CS-QNAS描述)
 - [模型架构](#模型架构)
 - [数据集](#数据集)
 - [环境要求](#环境要求)
@@ -25,9 +25,8 @@
 
 <!-- /TOC -->
 
-# EQNAS描述
 
-## 概述
+# ESWO-CS-QNA描述
 
 针对基于量子电路的量子神经网络，ESWO-CS-QNAS提出了一种基于增强蛛蜂优化算法的神经网络结构搜索方法，另外还加入一种新型的缓存机制和二元代理优化机制。在EQNAS方法中，通过搜索最佳网络结构，以提高模型精度，降低量子电路的复杂性，并减轻构建实际量子电路的负担，可以用于解决分类任务，本项目解决的是图像二分类任务和文本多分类任务。
 
@@ -84,14 +83,14 @@
 
 - GPU环境运行
 
-  ```bash
-# 训练
+  ```python
+  # 训练
     # mnist 数据集训练示例
   nohup python -u ESWO_CS_QNAS.py --data-type mnist --data-path ./src/dataset/mnist/ --batch 32 --epoch 3 --final 10 --candidate 10 --noise 0 > mnist_train.log 2>&1 &
     # warship 数据集训练示例
- nohup python -u ESWO_CS_QNAS.py --data-type warship --data-path ./src/dataset/warship/ --batch 10 --epoch 15 --final 50 --candidate 10 --noise 0 > warship_train.log 2>&1 &
+  nohup python -u ESWO_CS_QNAS.py --data-type warship --data-path ./src/dataset/warship/ --batch 10 --epoch 15 --final 50 --candidate 10 --noise 0 > warship_train.log 2>&1 &
     # thucnews 数据集训练示例
- nohup python -u ESWO_CS_QNAS.py --data-type thucnews --data-path ./src/dataset/thucnews/ --batch 16 --epoch 3 --final 10 --candidate 10 --noise 0 > thucnews_train.log 2>&1 &
+  nohup python -u ESWO_CS_QNAS.py --data-type thucnews --data-path ./src/dataset/thucnews/ --batch 16 --epoch 3 --final 10 --candidate 10 --noise 0 > thucnews_train.log 2>&1 &
 
   # 训练完成之后可执行评估
   # mnist数据集评估
@@ -248,5 +247,5 @@
  请浏览官网[主页](https://gitee.com/mindspore/models)。
  # 其他情况说明
 
-- 为了保证论文的隐私，本项目只上传了部分代码，缺失的部分包括eswo.py(用于实现缓存机制和增强蛛蜂优化算法来寻找优秀的QNN),dataset.py(项目涉及三个数据集的预处理过程)，
+- 为了保证论文的隐私，本项目只上传了部分代码，缺失的部分包括eswo.py(用于实现缓存机制和增强蛛蜂优化算法来寻找优秀的QNN),dataset.py(三个数据集的预处理过程)，
   weak_train_data文件夹(包括预训练的QNN之间的编码对以及二元优劣关系)以及common.py(含噪量子电路的构建过程)，当论文发表后，我们会补充上述关键文件，请读者理解。
