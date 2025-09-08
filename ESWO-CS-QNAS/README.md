@@ -109,9 +109,9 @@
 ```bash
 ├── ESWO-CS-QNAS
     ├── condalist.txt                   # Anaconda env list
-    ├── eqnas.py                        # 训练脚本
+    ├── ESWO_CS_QNAS.py                        # 训练脚本
     ├── eval.py                         # 评估脚本
-    ├── README.md                       # EQNAS模型相关说明
+    ├── README.md                       # ESWO-CS-QNAS模型相关说明
     ├── requirements.txt                # pip 包依赖
     └── src
         ├── dataset.py                  # 数据集生成
@@ -140,9 +140,10 @@
   cfg.QEA.fitness_best = []  # The best fitness of each generation
 
   # Various parameters of the population
-  cfg.QEA.Genome = 64  # Chromosome length
-  cfg.QEA.N = 10  # Population size
-  cfg.QEA.generation_max = 10  # Population Iterations
+  cfg.QEA.Genome = 64  # Chromosome length, 96 for thucnews
+  cfg.QEA.N = 13  # initial population size
+  cfg.QEA.N_min = 7 
+  cfg.QEA.generation_max = 10  # Population Iterations, 30 for warship and 7 for thucnews
 
   # Dataset parameters
   cfg.DATASET = EasyDict()
@@ -152,10 +153,10 @@
 
   # Training parameters
   cfg.TRAIN = EasyDict()
-  cfg.TRAIN.EPOCHS = 3  # 10 for warship
-  cfg.TRAIN.EPOCHS_FINAL = 10  # 20 for warship
-  cfg.TRAIN.BATCH_SIZE = 32  # 10 for warship
-  cfg.TRAIN.learning_rate = 0.001
+  cfg.TRAIN.EPOCHS = 3  # 15 for warship
+  cfg.TRAIN.EPOCHS_FINAL = 10  # 50 for warship
+  cfg.TRAIN.BATCH_SIZE = 32  # 10 for warship and 16 for thucnews
+  cfg.TRAIN.learning_rate = 0.001 # 0.01 for thucnews
   cfg.TRAIN.checkpoint_path = "./weights/"+cfg.DATASET.type+"/final/"
   ```
 
