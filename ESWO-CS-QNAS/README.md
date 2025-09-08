@@ -45,14 +45,14 @@
 使用的数据集：
 
 - 数据集 [MNIST](<http://yann.lecun.com/exdb/mnist/>) 描述：MNIST数据集一共有7万张图片，其中6万张是训练集，1万张是测试集。每张图片是 28×28 的0 − 9的手写数字图片组成。每个图片是黑底白字的形式，黑底用0表示，白字用0-1之间的浮点数表示，越接近1，颜色越白。本模型筛选出其中的"3"和"6"类别，进行二分类。
-- 数据集 [Warship](<https://gitee.com/Pcyslist/mqnn/blob/master/warship.zip>) 描述： 为了验证QNN对更复杂图像数据集的分类效果以及我们提出的EQNAS方法的有效性，我们采用了一组舰船目标数据集。该数据集是一艘航行中的船只，由无人机从不同角度拍摄。图像采用JPG格式，分辨率为640×512。它包含两个类别：Burke和Nimitz。该数据集的训练集数量为411（Burke类202个,Nimitz类209个），测试集数量为150（Burke类78个,Nimitz类72个）。
+- 数据集 [Warship](<https://gitee.com/Pcyslist/mqnn/blob/master/warship.zip>) 描述： 为了验证QNN对更复杂图像数据集的分类效果以及我们提出的ESWO-CS-QNAS方法的有效性，我们采用了一组舰船目标数据集。该数据集是一艘航行中的船只，由无人机从不同角度拍摄。图像采用JPG格式，分辨率为640×512。它包含两个类别：Burke和Nimitz。该数据集的训练集数量为411（Burke类202个,Nimitz类209个），测试集数量为150（Burke类78个,Nimitz类72个）。
 - 数据集 [THUCNews](https://pan.baidu.com/s/1hugrfRu/) 描述：THUCNews是根据新浪新闻RSS订阅频道2005~2011年间的历史数据筛选过滤生成，包含74万篇新闻文档，均为UTF-8纯文本格式。为了降低量子神经网络的训练压力，我们从四个类别中各提取一千条数据，使用这四千条数据训练和评估搜索到的量子神经网络。
 下载后，将数据集解压到如下目录：
 
 ```python
-~/path/to/EQNAS/src/dataset/mnist
-~/path/to/EQNAS/src/dataset/warship
-~/path/to/EQNAS/src/dataset/thucnews
+~/path/to/ESWO-CS-QNAS/src/dataset/mnist
+~/path/to/ESWO-CS-QNAS/src/dataset/warship
+~/path/to/ESWO-CS-QNAS/src/dataset/thucnews
 ```
 
 # 环境要求
@@ -168,7 +168,7 @@
 
 - GPU环境运行训练mnist数据集
 
-  运行以下命令时请将数据集移动到EQNAS根目录下`src/dataset`文件夹下中，则可使用相对路径描述数据集位置，否则请将`--data-path`设置为绝对路径。
+  运行以下命令时请将数据集移动到ESWO-CS-QNAS根目录下`src/dataset`文件夹下中，则可使用相对路径描述数据集位置，否则请将`--data-path`设置为绝对路径。
 
   ```
   nohup python -u ESWO_CS_QNAS.py --data-type mnist --data-path ./src/dataset/mnist/ --batch 32 --epoch 3 --final 10 --candidate 10 --noise 0 > mnist_train.log 2>&1 &
@@ -176,7 +176,7 @@
 
   上述python命令将在后台运行，您可以通过当前目录下的`mnist_train.log`文件或者`./log/`目录下面的日志文件查看结果。
 
-  训练结束后，您可在`eqnas.py`脚本所在目录下的`./weights/`目录下找到架构搜索过程中每一个模型对应的`best.ckpt、init.ckpt、latest.ckpt`文件以及`model.arch`模型架构文件。
+  训练结束后，您可在`ESWO_CS_QNAS.py`脚本所在目录下的`./weights/`目录下找到架构搜索过程中每一个模型对应的`best.ckpt、init.ckpt、latest.ckpt`文件以及`model.arch`模型架构文件。
 
 - GPU环境运行训练warship数据集
 
@@ -196,7 +196,7 @@
 
 - 在GPU环境运行评估mnist数据集
 
-- 在运行以下命令之前，清将数据集移动到EQNAS根目录下`src/dataset`文件夹下中，则可使用相对路径描述数据集位置，否则清给出数据集的绝对路径。
+- 在运行以下命令之前，清将数据集移动到ESWO-CS-QNAS根目录下`src/dataset`文件夹下中，则可使用相对路径描述数据集位置，否则清给出数据集的绝对路径。
 
 - 请用于评估的检查点路径。请将检查点路径设置为绝对路径。
 
@@ -228,8 +228,8 @@
 #### 无噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS
 
 | 参数            | GPU                                           | GPU                                           |GPU                                          |
-| --------------- | --------------------------------------------- | ---------------------------------------------|--------------------------------------------- |
-| 模型版本        | ESWO-CS-QNAS(noiseless)                       | EQNAS-CS-QNAS(noiseless)                      |EQNAS-CS-QNAS(noiseless)                      |
+| --------------- | --------------------------------------------- | --------------------------------------------- |--------------------------------------------- |
+| 模型版本        | ESWO-CS-QNAS(noiseless)                       | ESWO-CS-QNAS(noiseless)                       |ESWO-CS-QNAS(noiseless)                       |
 | 资源            | NVIDIA Tesla P100 PCIe 16GB ；系统 ubuntu22.04| NVIDIA Tesla P100 PCIe 16GB; 系统ubuntu22.04  | NVIDIA Tesla P100 PCIe 16GB; 系统ubuntu22.04  |
 | 上传日期        | 2025-8-31                                     | 2025-8-31                                     | 2025-8-31                                    |
 | MindSpore版本   | 1.8.1                                         | 1.8.1                                         | 1.8.1                                        |
