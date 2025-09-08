@@ -19,7 +19,7 @@
     - [噪声](#噪声)
     - [性能](#性能)
         - [训练性能](#训练性能)
-            - [warship数据集上训练EQNAS](#warship数据集上训练EQNAS)
+            - [无噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS](#无噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS)
 - [随机情况说明](#随机情况说明)
 - [ModelZoo主页](#modelzoo主页)
 - [其他情况说明](#其他情况说明)
