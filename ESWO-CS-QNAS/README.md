@@ -119,7 +119,7 @@
         ├── metrics.py                  # 模型评价指标
         ├── model
         │   └── common.py               # QNN量子神经网络创建
-        ├── ESWO-CS-QNAS.py             # 量子神经架构搜索算法
+        ├── ESWO_CS_QNAS.py             # 量子神经架构搜索算法
         └── utils
             ├── config.py               # 模型参数配置文件
             ├── data_preprocess.py      # 数据预处理
@@ -235,7 +235,7 @@
 | MindSpore版本   | 1.8.1                                         | 1.8.1                                         | 1.8.1                                        |
 | MindQuantum版本 | 0.7.0                                         | 0.7.0                                         | 0.7.0                                        |
 | 数据集          | warship                                       | mnist                                         | thucnews                                     |
-| 训练参数        | epoch=30, steps per epoch=41, batch_size = 10 | epoch=10.steps per epoch=116, batch_size = 32 | epoch=10.steps per epoch=200, batch_size = 16|
+| 训练参数        | epoch=30, steps per epoch=41, batch_size = 10 | epoch=10.steps per epoch=116, batch_size = 32 | epoch=7.steps per epoch=200, batch_size = 16|
 | 优化器          | Adam                                          | Adam                                          | Adam                                         |
 | 损失函数        | Binary CrossEntropy Loss                      | Binary CrossEntropy Loss                      | CrossEntropy Loss                            |
 | 输出            | accuracy                                      | accuracy                                      | accuracy                                     |
