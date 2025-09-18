@@ -17,10 +17,11 @@
     - [导出过程](#导出过程)
 - [模型描述](#模型描述)
     - [噪声](#噪声)
+    - [每个进化节点的候选个体数量](#每个进化节点的候选个体数量)
     - [性能](#性能)
         - [训练性能](#训练性能)
-        - [每个进化节点的候选个体数量](#每个进化节点的候选个体数量)
             - [无噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS](#无噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS)
+            - [噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS](#噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS)
 - [随机情况说明](#随机情况说明)
 - [ModelZoo主页](#modelzoo主页)
 - [其他情况说明](#其他情况说明)
@@ -244,7 +245,22 @@
 | 输出            | accuracy                                      | accuracy                                      | accuracy                                     |
 | 精度            | 82.00±1.05%                                   | 98.98±0.22%                                   | 96.13%                                       |
 | 训练时长        | 1990.4min                                     | 998.8min                                      |2053min                                       |
+#### 噪声环境下在warship、mnist和thucnews数据集上训练ESWO-CS-QNAS
 
+| 参数            | GPU                                           | GPU                                           |GPU                                          |
+| --------------- | --------------------------------------------- | --------------------------------------------- |--------------------------------------------- |
+| 模型版本        | ESWO-CS-QNAS(noise)                           | ESWO-CS-QNAS(noise)                           |ESWO-CS-QNAS(noise)                           |
+| 资源            | NVIDIA Tesla P100 PCIe 16GB ；系统 ubuntu22.04| NVIDIA Tesla P100 PCIe 16GB; 系统ubuntu22.04  | NVIDIA Tesla P100 PCIe 16GB; 系统ubuntu22.04  |
+| 上传日期        | 2025-8-31                                     | 2025-8-31                                     | 2025-8-31                                    |
+| MindSpore版本   | 1.8.1                                         | 1.8.1                                         | 1.8.1                                        |
+| MindQuantum版本 | 0.7.0                                         | 0.7.0                                         | 0.7.0                                        |
+| 数据集          | warship                                       | mnist                                         | thucnews                                     |
+| 训练参数        | epoch=30, steps per epoch=41, batch_size = 10 | epoch=10.steps per epoch=116, batch_size = 32 | epoch=7.steps per epoch=200, batch_size = 16|
+| 优化器          | Adam                                          | Adam                                          | Adam                                         |
+| 损失函数        | Binary CrossEntropy Loss                      | Binary CrossEntropy Loss                      | CrossEntropy Loss                            |
+| 输出            | accuracy                                      | accuracy                                      | accuracy                                     |
+| 精度            | 80.6%                                         | 98.37%                                        | 94.5%                                       |
+注：在噪声环境下thucnews数据集上标注的性能优于论文中的指标，原因是在论文返稿时这一部分的实验并未运行完毕，论文中的数据是运行了整个程序2/3的结果。在本项目中，我们提交了整个项目完整运行的实验结果。
 # 随机情况说明
 
 - 脚本dataset.py中，在创建舰船数据加载器时，对舰船数据进行打乱处理时，设置了随机数种子
